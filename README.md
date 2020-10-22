@@ -4,6 +4,6 @@
 - Flask for Web Hosting
 - Regex for Pattern Search and Replace (re module)
 - Pandas for parsing csv and excels
-- pdfReader module (https://github.com/maxpmaxp/pdfreader)
+- textract module for reading pdfs (https://textract.readthedocs.io/en/stable/index.html)
 
 #### Note: This service purges off any uploaded content/document post page refresh. It does not save or cache any uploaded content. 
