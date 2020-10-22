@@ -4,7 +4,24 @@
   <body>
     <form action="/file" enctype="multipart/form-data" method="POST">
         <input type="file" id="myFile" name="filename">
+        <label for="data">What do you want to search:</label>
+        <select name="data" id="datatype" >
+                <option value="date">date</option>
+                <option value="whole numbers">Whole Numbers</option>
+                <option value="fractional numbers">Fractional Numbers</option>
+                <option value="currency">Currency</option>
+                <option value="Percentages">Percentages</option>
+                <option value="Time">Time</option>
+                <option value="Punctuations">Punctuations</option>
+        </select>
+  <br><br>
         <input type="submit">
+
+    
       </form>
+      <div> {{text}}</div>
+      <h2>Matches</h2>
+      <div>{{matches}}</div>
   </body>
+  
 </html>
