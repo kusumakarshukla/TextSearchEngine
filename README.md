@@ -2,9 +2,8 @@
 
 ## This project is built using the following technologies:
 - Flask for Web Hosting
-- Regex for Advanced Pattern Find and/or Replace (using re module)
+- Regex for Pattern Search and Replace (re module)
 - Pandas for parsing csv and excels
 - pdfReader module (https://github.com/maxpmaxp/pdfreader)
 
-
-## Note: This service does not store any file/document post processing. With every page refresh, the uploaded contents are automatically purged off.
+## Note: This service purges off any uploaded content/document post page refresh. It does not save or cache any uploaded content. 
