@@ -145,7 +145,8 @@ def render_file(filename,search):
 		m6.extend(m1)
 		m6=[i for i in m6 if i!='']
 
-	
+	os.system('rm -f data/*.pdf')
+	print("Deleted files")
 	return render_template('index.html',text=text,matches=m6)
 	
 	
