@@ -4,6 +4,7 @@ import os
 import textract
 import datetime
 import re
+import currency
 app = Flask(__name__)
 
 @app.route("/")
@@ -64,6 +65,7 @@ def render_file(filename,search):
 	text=text.decode('utf-8')
 	months=get_months()
 	m6=[]
+	print(search)
 	if search=='date':
 		
 		pattern1=re.compile("[0-9][0-9]-[0-9][0-9]-[0-9][0-9][0-9][0-9]")
@@ -104,11 +106,47 @@ def render_file(filename,search):
 		m5=pattern5.findall(text)
 		if len(m5)!=0:
 			m6.extend(m5)
+	if search=='whole numbers':
+		
+		pattern1=re.compile("\d+(?!\.)")
+		
+		m1=pattern1.findall(text)
+		match=pattern1.search(text)
+		print(match.groups('whole'))
 		
 
+		m6.extend(m1)
+		m6=[i for i in m6 if i!='']
+	if search =='currency':
+		print("hi")
+		currenc = []
+		with open("data//currency.txt") as f:
+			for line in f:
+				currenc.append(line.split(" ")[0])
+		c=[]
+		for i in currenc:
 
+			try:
+				c.append(currency.symbol(i))
+			except:
+				pass
+
+		print(c)
+		c.append('Rs.')
+		text=text.replace(',','')
+		pattern1=re.compile("(?:{0})\s*[0-9]+".format('|'.join(c)))
+
+		
+		m1=pattern1.findall(text)
+		match=pattern1.search(text)
+		
+		
+
+		m6.extend(m1)
+		m6=[i for i in m6 if i!='']
+
+	
 	return render_template('index.html',text=text,matches=m6)
-
 	
 	
 if __name__=='__main__':
