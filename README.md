@@ -7,3 +7,7 @@
 - textract module for reading pdfs (https://textract.readthedocs.io/en/stable/index.html)
 
 #### Note: This service purges off any uploaded content/document post page refresh. It does not save or cache any uploaded content. 
+
+#### Modules used:
+ - regex -> re
+ - currency -> currency-symbols
